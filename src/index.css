@@ -1,6 +1,6 @@
 :root {
- 	--main-bg-color: #211f5e;
-  --main-color: #dededf;
+ 	--main-bg-color: #0d0f0e;
+  --main-color: white;
 
 	/*
 		Media Query Breakpoints
@@ -30,7 +30,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-	background-color: black;
+	background-color: var(--main-bg-color);
 }
 
 @media (prefers-color-scheme: light) {
