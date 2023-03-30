@@ -6,7 +6,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 export default defineConfig({
   build: {
     lib: {
-      entry: 'src/components/kr0nwave-app.js',
+      entry: 'src/components/mgmelodies.js',
       formats: ['es'],
     },
 		manifest: true,
