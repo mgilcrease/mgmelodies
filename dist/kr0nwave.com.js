@@ -1,139 +1,136 @@
-import { LitElement as l, html as c, css as a } from "lit";
+import { LitElement as c, css as l, html as d } from "lit";
+import { customElement as f } from "lit/decorators.js";
 (function() {
-  const o = document.createElement("link").relList;
-  if (o && o.supports && o.supports("modulepreload"))
+  const r = document.createElement("link").relList;
+  if (r && r.supports && r.supports("modulepreload"))
     return;
-  for (const t of document.querySelectorAll('link[rel="modulepreload"]'))
-    r(t);
-  new MutationObserver((t) => {
-    for (const e of t)
-      if (e.type === "childList")
-        for (const i of e.addedNodes)
-          i.tagName === "LINK" && i.rel === "modulepreload" && r(i);
+  for (const e of document.querySelectorAll('link[rel="modulepreload"]'))
+    i(e);
+  new MutationObserver((e) => {
+    for (const t of e)
+      if (t.type === "childList")
+        for (const s of t.addedNodes)
+          s.tagName === "LINK" && s.rel === "modulepreload" && i(s);
   }).observe(document, { childList: !0, subtree: !0 });
-  function s(t) {
-    const e = {};
-    return t.integrity && (e.integrity = t.integrity), t.referrerpolicy && (e.referrerPolicy = t.referrerpolicy), t.crossorigin === "use-credentials" ? e.credentials = "include" : t.crossorigin === "anonymous" ? e.credentials = "omit" : e.credentials = "same-origin", e;
+  function o(e) {
+    const t = {};
+    return e.integrity && (t.integrity = e.integrity), e.referrerPolicy && (t.referrerPolicy = e.referrerPolicy), e.crossOrigin === "use-credentials" ? t.credentials = "include" : e.crossOrigin === "anonymous" ? t.credentials = "omit" : t.credentials = "same-origin", t;
   }
-  function r(t) {
-    if (t.ep)
+  function i(e) {
+    if (e.ep)
       return;
-    t.ep = !0;
-    const e = s(t);
-    fetch(t.href, e);
+    e.ep = !0;
+    const t = o(e);
+    fetch(e.href, t);
   }
 })();
-const d = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0iaW1nIiBjbGFzcz0iaWNvbmlmeSBpY29uaWZ5LS1sb2dvcyIgd2lkdGg9IjI1LjYiIGhlaWdodD0iMzIiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZpZXdCb3g9IjAgMCAyNTYgMzIwIj48cGF0aCBmaWxsPSIjMDBFOEZGIiBkPSJtNjQgMTkybDI1LjkyNi00NC43MjdsMzguMjMzLTE5LjExNGw2My45NzQgNjMuOTc0bDEwLjgzMyA2MS43NTRMMTkyIDMyMGwtNjQtNjRsLTM4LjA3NC0yNS42MTV6Ij48L3BhdGg+PHBhdGggZmlsbD0iIzI4MzE5OCIgZD0iTTEyOCAyNTZWMTI4bDY0LTY0djEyOGwtNjQgNjRaTTAgMjU2bDY0IDY0bDkuMjAyLTYwLjYwMkw2NCAxOTJsLTM3LjU0MiAyMy43MUwwIDI1NloiPjwvcGF0aD48cGF0aCBmaWxsPSIjMzI0RkZGIiBkPSJNNjQgMTkyVjY0bDY0LTY0djEyOGwtNjQgNjRabTEyOCAxMjhWMTkybDY0LTY0djEyOGwtNjQgNjRaTTAgMjU2VjEyOGw2NCA2NGwtNjQgNjRaIj48L3BhdGg+PHBhdGggZmlsbD0iIzBGRiIgZD0iTTY0IDMyMFYxOTJsNjQgNjR6Ij48L3BhdGg+PC9zdmc+";
-class g extends l {
-  static get properties() {
-    return {
-      /**
-       * Copy for the read the docs hint.
-       */
-      docsHint: { type: String },
-      /**
-       * The number of times the button has been clicked.
-       */
-      count: { type: Number }
-    };
-  }
-  constructor() {
-    super(), this.docsHint = "Click on the Vite and Lit logos to learn more", this.count = 0;
+var h = Object.defineProperty, m = Object.getOwnPropertyDescriptor, p = (a, r, o, i) => {
+  for (var e = i > 1 ? void 0 : i ? m(r, o) : r, t = a.length - 1, s; t >= 0; t--)
+    (s = a[t]) && (e = (i ? s(r, o, e) : s(e)) || e);
+  return i && e && h(r, o, e), e;
+};
+let n = class extends c {
+  static get styles() {
+    return l`
+			@media (max-width: 699.98px) {
+				#site-header {
+					grid-template-areas: 
+						'avatar'
+						'business-card'
+				}
+
+				#site-header .avatar {
+					text-align: center;
+				}
+			}
+
+			@media (min-width: 700px) {
+				#site-header {
+					grid-template-areas: 'business-card business-card business-card avatar';
+				}
+
+				#site-header .avatar {
+					grid-area: avatar;
+					text-align: right;
+				}
+			}
+
+      		:host {
+				display: flex;
+				flex-flow: column;
+				color: var(--main-color);
+				height: 100vh;
+      		}
+
+			#site-header {
+				padding: 10px;
+				text-align: left;
+				background-color: var(--main-bg-color);
+				display: grid;
+				opacity: .9;
+			}
+
+			#site-header .business-card {
+				grid-area: business-card;
+			}
+
+			#site-body {
+				flex: 1;
+				overflow: scroll;
+			}
+
+			#site-footer {
+				background-color: var(--main-bg-color);
+				padding: 10px 0;
+				width: 100%;
+				display: flex;
+				justify-content: right;
+				align-items: center;
+				opacity: .9;
+			}
+
+			#site-footer .icons8 {
+				display: inline-block;
+			}
+
+			#site-footer .logo-image {
+				width: 100px;
+				margin-right: 25px;
+			}
+
+			.vertical {
+				border-left: 2px solid lightgray;
+				height: 50%;
+				display: inline-block;
+				margin: 0 10px;
+			}
+    `;
   }
   render() {
-    return c`
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://lit.dev" target="_blank">
-          <img src=${d} class="logo lit" alt="Lit logo" />
-        </a>
-      </div>
-      <slot></slot>
-      <div class="card">
-        <button @click=${this._onClick} part="button">
-          count is ${this.count}
-        </button>
-      </div>
-      <p class="read-the-docs">${this.docsHint}</p>
-    `;
+    return d`
+			<link rel="stylesheet" href="https://kit.fontawesome.com/7cfa700e9d.css" crossorigin="anonymous">
+			<header id="site-header">
+				<div class="business-card">
+					<h1>Mark Gilcrease</h1>
+					<h2>Professional Troubador</h2>
+					<h3>Contact me at <a href="mailto:mark@mgmelodies.net">mark@mgmelodies.net</a> if you're interested in booking a gig. I'd love to hear from you!</h3>
+				</div>
+				<div class="avatar"><img src="/src/assets/handshot.jpg"/></div>
+			</header>
+			<section id="site-body">
+			</section>
+			<footer id="site-footer">
+				<span class="icons8"><a target="_blank" href="https://icons8.com/icon/102474/audio-wave2">favicon</a>&nbsp;by&nbsp;<a target="_blank" href="https://icons8.com">Icons8</a></span>
+				<div class="vertical"></div>
+				Site powered by
+				<a target="_blank" href="https://kr0ntech.com">
+					<img class="logo-image" title="Kr0nTech Consulting, LLC" src="/src/assets/logo-kr0ntech.png" title="Kr0nTech" />
+				</a>
+
+			</footer>
+			`;
   }
-  _onClick() {
-    this.count++;
-  }
-  static get styles() {
-    return a`
-      :host {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .logo {
-        height: 6em;
-        padding: 1.5em;
-        will-change: filter;
-        transition: filter 300ms;
-      }
-      .logo:hover {
-        filter: drop-shadow(0 0 2em #646cffaa);
-      }
-      .logo.lit:hover {
-        filter: drop-shadow(0 0 2em #325cffaa);
-      }
-
-      .card {
-        padding: 2em;
-      }
-
-      .read-the-docs {
-        color: #888;
-      }
-
-      a {
-        font-weight: 500;
-        color: #646cff;
-        text-decoration: inherit;
-      }
-      a:hover {
-        color: #535bf2;
-      }
-
-      h1 {
-        font-size: 3.2em;
-        line-height: 1.1;
-      }
-
-      button {
-        border-radius: 8px;
-        border: 1px solid transparent;
-        padding: 0.6em 1.2em;
-        font-size: 1em;
-        font-weight: 500;
-        font-family: inherit;
-        background-color: #1a1a1a;
-        cursor: pointer;
-        transition: border-color 0.25s;
-      }
-      button:hover {
-        border-color: #646cff;
-      }
-      button:focus,
-      button:focus-visible {
-        outline: 4px auto -webkit-focus-ring-color;
-      }
-
-      @media (prefers-color-scheme: light) {
-        a:hover {
-          color: #747bff;
-        }
-        button {
-          background-color: #f9f9f9;
-        }
-      }
-    `;
-  }
-}
-window.customElements.define("my-element", g);
+};
+n = p([
+  f("mgmelodies-app")
+], n);
