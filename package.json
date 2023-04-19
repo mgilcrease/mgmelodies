@@ -22,7 +22,6 @@
     "typescript": "^4.9.5"
   },
   "devDependencies": {
-    "vite": "^4.1.0",
-    "workbox-cli": "^6.5.4"
+    "vite": "^4.1.0"
   }
 }
